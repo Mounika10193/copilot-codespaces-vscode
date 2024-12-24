@@ -1,0 +1,38 @@
+import re
+
+def chatbot_response(user_input):
+    # Convert input to lowercase for case insensitivity
+    user_input = user_input.lower()
+
+    # Basic rule-based responses using if-else statements
+    if re.search(r'hello|hi|hey', user_input):
+        return "Hello! How can I help you today?"
+    elif re.search(r'how are you', user_input):
+        return "I'm just a bot, but I'm doing great! How about you?"
+    elif re.search(r'bye|goodbye', user_input):
+        return "Goodbye! Have a nice day!"
+    elif re.search(r'what is your name', user_input):
+        return "I'm a chatbot. I don't have a personal name, but you can call me Chatbot!"
+    elif re.search(r'help', user_input):
+        return "Sure! How can I assist you? You can ask me about your tasks or anything else."
+    elif re.search(r'weather', user_input):
+        return "I can't provide weather updates right now, but you can check it online."
+    else:
+        return "Sorry, I didn't understand that. Can you rephrase it?"
+
+# Main chat loop
+def chat():
+    print("Welcome to the simple chatbot! (type 'bye' to exit)")
+    while True:
+        user_input = input("You: ")
+        
+        if 'bye' in user_input.lower():
+            print("Chatbot: Goodbye!")
+            break
+        
+        response = chatbot_response(user_input)
+        print(f"Chatbot: {response}")
+
+# Start the chatbot
+if __name__ == "__main__":
+    chat()
